@@ -42,7 +42,7 @@ jobs:
     - name: Terraform init
       id: init
       run: |-
-        terraform init -backend-config="bucket=$BUCKET_NAME" -backend-config="dev"
+        terraform init -backend-config="bucket=$BUCKET_NAME" -backend-config="prefix=dev"
       continue-on-error: false
       working-directory: ./tf-scripts
       env:
