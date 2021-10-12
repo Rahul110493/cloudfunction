@@ -12,6 +12,11 @@ provider "google" {
   zone = "${var.zone}"
 }
 
+module "enable-api" {
+  source= "./gcp/service/api-resources"
+  gcp_service_list=var.gcp_service_list
+}
+  
 module "cloudscheduler" {
     source = "./gcp/service/cloudscheduler"
 
@@ -36,5 +41,6 @@ module "gcp-cloudfunctions" {
   service_account_email = var.service_account_email
   vpc_connector         = var.vpc_connector
   max_instances         = var.max_instances
+  depends_on = [module.enable-api]
   
 }
