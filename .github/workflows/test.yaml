@@ -3,7 +3,7 @@ name: Postman api automated testing
 on: 
   push:
     branches:
-      - testing
+      - dev
       
 env:
   GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
