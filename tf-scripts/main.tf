@@ -25,7 +25,7 @@ module "gcp-cloudfunctions" {
   source = "./gcp/service/cloudfunctions"
         
   function_name         = var.function_name    
-  description           = var.description != "" ? var.description : "${var.name} HTTP Cloud Function"
+  description           = var.description != "" ? var.description : "${var.function_name} HTTP Cloud Function"
   available_memory_mb   = var.available_memory_mb
   bucket_name           = var.bucket_name
   timeout               = var.timeout
