@@ -99,3 +99,12 @@ variable "max_instances" {
   description = "(Optional) Limit the degree to which your function will scale in response to incoming requests."
   default     = null
 }
+variable "gcp_service_list" {
+  description = "The service_account_name of an Google Project"
+  type = list
+  default =  [
+ #  "iam.googleapis.com",                     # Identity and Access Management (IAM) API
+ #  "cloudresourcemanager.googleapis.com",     #Cloud Resource Manager API
+ #  "run.googleapis.com",                     # Cloud Run API
+ ]
+}
