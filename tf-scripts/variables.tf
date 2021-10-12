@@ -99,9 +99,3 @@ variable "max_instances" {
   description = "(Optional) Limit the degree to which your function will scale in response to incoming requests."
   default     = null
 }
-
-variable "region" {
-  type        = string
-  description = "Cloud Functions Region"
-  default     = "europe-west1"
-}
