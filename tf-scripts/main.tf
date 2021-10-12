@@ -17,7 +17,8 @@ module "cloudscheduler" {
 
     scheduler_name = var.scheduler_name
     scheduler_cron = var.scheduler_cron
-    scheduler_time_zone = var.scheduler_time_zone  
+    scheduler_time_zone = var.scheduler_time_zone
+    uri = module.gcp-cloudfunctions.url
     depends_on = [module.gcp-cloudfunctions]
 }
 
@@ -35,6 +36,6 @@ module "gcp-cloudfunctions" {
   service_account_email = var.service_account_email
   vpc_connector         = var.vpc_connector
   max_instances         = var.max_instances
-  uri = module.gcp-cloudfunctions.url
+  
   
 }
