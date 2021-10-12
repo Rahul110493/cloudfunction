@@ -58,7 +58,7 @@ jobs:
           -var="function_name=$REPO_NAME" \
           -var="entry_point=myWebsiteBackend" \
           -var="scheduler_name=schedule" \
-          -var="service_account_name=schedule" \          
+          -var="service_account_name=schedule" \
           -var-file=gcp/service/api-resources/api.tfvars \
           -out=PLAN
       continue-on-error: false
