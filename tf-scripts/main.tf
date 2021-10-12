@@ -13,7 +13,6 @@ provider "google" {
 }
 
 module "cloudscheduler" {
-    count = var.vendor == "cloudscheduler" ? 1 : 0
     source = "./gcp/service/cloudscheduler"
 
     scheduler_name = var.scheduler_name
