@@ -106,5 +106,6 @@ variable "gcp_service_list" {
  #  "iam.googleapis.com",                     # Identity and Access Management (IAM) API
  #  "cloudresourcemanager.googleapis.com",     #Cloud Resource Manager API
  #  "run.googleapis.com",                     # Cloud Run API
+   "cloudfunctions.googleapis.com",          # Cloud Function API
  ]
 }
