@@ -8,7 +8,7 @@ gcp_service_list = [
   # "cloudapis.googleapis.com",               # Google Cloud APIs
   #"cloudbuild.googleapis.com",              # Cloud Build API
   # "clouddebugger.googleapis.com",           # Cloud Debugger API
-  #"cloudfunctions.googleapis.com",          # Cloud Function API
+  "cloudfunctions.googleapis.com",          # Cloud Function API
   # "cloudkms.googleapis.com",                # KMS API
   #"cloudscheduler.googleapis.com",          # Cloud Scheduler API
   # "cloudtrace.googleapis.com",              # Stackdriver Trace API
