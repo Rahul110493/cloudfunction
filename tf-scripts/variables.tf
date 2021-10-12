@@ -114,3 +114,8 @@ variable "service_account_name" {
   type = string
   default = ""
 }
+variable "account_id" {
+  description = "The id of an Google Project"
+  type = string
+  default = ""
+}
