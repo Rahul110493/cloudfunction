@@ -20,6 +20,7 @@ module "enable-api" {
 module "service-account" {
   source= "./gcp/service/service-account"
   service_account_name= var.service_account_name
+  account_id = var.account_id
   depends_on = [module.enable-api]
 }
   
