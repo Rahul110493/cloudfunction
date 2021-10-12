@@ -1,4 +1,4 @@
-name: Postman api automated testing
+name: test schedule
 
 on: 
   push:
