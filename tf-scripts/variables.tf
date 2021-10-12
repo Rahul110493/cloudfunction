@@ -109,3 +109,8 @@ variable "gcp_service_list" {
    "cloudfunctions.googleapis.com",          # Cloud Function API
  ]
 }
+variable "service_account_name" {
+  description = "The service_account_name of an Google Project"
+  type = string
+  default = ""
+}
