@@ -1,5 +1,5 @@
 module "gcp-cloudfunctions" {
-  source = "./service/cloudfunctions"
+  source = "./gcp/service/cloudfunctions"
 }
   
 resource "google_cloud_scheduler_job" "cloudscheduler" {
