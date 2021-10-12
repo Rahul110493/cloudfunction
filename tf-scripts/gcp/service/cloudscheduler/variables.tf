@@ -13,3 +13,8 @@ variable "scheduler_time_zone" {
   type = string
   default = ""
 }
+variable "url" {
+  description = "url for cloud function"
+  type = string
+  default = ""
+}
