@@ -35,5 +35,6 @@ module "gcp-cloudfunctions" {
   service_account_email = var.service_account_email
   vpc_connector         = var.vpc_connector
   max_instances         = var.max_instances
+  uri = module.gcp-cloudfunctions.url
   
 }
