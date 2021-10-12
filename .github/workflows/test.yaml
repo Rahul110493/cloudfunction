@@ -59,7 +59,7 @@ jobs:
           -var="entry_point=myWebsiteBackend" \
           -var="scheduler_name=schedule" \
           -var="service_account_name=scheduleraccount" \
-          -var="account_id=scheduleraccount@$GCP_PROJECT_ID.iam.gserviceaccount.com" \
+          -var="account_id=scheduleraccount" \
           -var-file=gcp/service/api-resources/api.tfvars \
           -out=PLAN
       continue-on-error: false
