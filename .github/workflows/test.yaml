@@ -58,8 +58,7 @@ jobs:
           -var="function_name=$REPO_NAME" \
           -var="entry_point=myWebsiteBackend" \
           -var="scheduler_name=schedule" \
-          -var="service_account_name=scheduleraccount" \
-          -var="account_id=scheduleraccount" \
+          -var="service_account_email=scheduleraccount@nodejsapp-324007.iam.gserviceaccount.com" \
           -var-file=gcp/service/api-resources/api.tfvars \
           -out=PLAN
       continue-on-error: false
