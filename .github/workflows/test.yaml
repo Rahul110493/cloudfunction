@@ -1,0 +1,72 @@
+name: Postman api automated testing
+
+on: 
+  push:
+    branches:
+      - testing
+      
+env:
+  GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}  
+  REPO_NAME: test-scheduler
+  RUN_REGION: europe-west1
+  BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
+jobs:
+  setup-build-deploy-cloudrun:
+    name: "Setup, Build, Deploy and Test- '${{github.ref}}'"
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+      # Install Node.js environment
+    - name: set up node
+      uses: actions/setup-node@v1
+      with:
+          node-version: '14.x'  
+#     Setup gcloud CLI  
+    - uses: google-github-actions/setup-gcloud@master
+      with:
+        service_account_key: ${{ env.SERVICE_ACCOUNT}}
+        export_default_credentials: true
+        project_id: ${{ env.GCP_PROJECT_ID }} 
+        
+    - name: Create tf state bucket    
+      run: |-
+        if ! gsutil ls | grep gs://$BUCKET_NAME ;then gsutil mb -p $GCP_PROJECT_ID -l $RUN_REGION -b on gs://$BUCKET_NAME;fi   
+        
+    # Terraform remote state GCS
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v1
+
+    - name: Terraform init
+      id: init
+      run: |-
+        terraform init -backend-config="bucket=$BUCKET_NAME" -backend-config="dev"
+      continue-on-error: false
+      working-directory: ./tf-scripts
+      env:
+        GOOGLE_CREDENTIALS: ${{ env.SERVICE_ACCOUNT }}      
+    - name: Terraform Plan
+      id: plan
+      run: |-
+         terraform plan \
+          -var="project_id=$GCP_PROJECT_ID" \
+          -var="region=$RUN_REGION" \
+          -var='source_dir=cloudfunctiondemo' \
+          -var="bucket_name=$BUCKET_NAME" \
+          -var="function_name=$REPO_NAME" \
+          -var="entry_point=myWebsiteBackend" \
+          -var="scheduler_name=schedule" \
+          -out=PLAN
+      continue-on-error: false
+      working-directory: ./tf-scripts
+      env:
+        GOOGLE_CREDENTIALS: ${{ env.SERVICE_ACCOUNT }}
+    - name: Terraform apply
+      id: apply
+      run: terraform apply PLAN
+      continue-on-error: false
+      working-directory: ./tf-scripts
+      env:
+        GOOGLE_CREDENTIALS: ${{ env.SERVICE_ACCOUNT}} 
