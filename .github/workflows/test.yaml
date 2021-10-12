@@ -58,8 +58,8 @@ jobs:
           -var="bucket_name=functionbuckets" \
           -var="function_name=$REPO_NAME" \
           -var="entry_point=myWebsiteBackend" \
-          -var="scheduler_name=abc" \
-          -var="service_account_name=schedule" \
+          -var="scheduler_name=schedule" \
+          -var="service_account_name=abc" \
           -var-file=gcp/service/api-resources/api.tfvars \
           -out=PLAN
       continue-on-error: false
