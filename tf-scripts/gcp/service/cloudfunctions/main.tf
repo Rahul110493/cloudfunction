@@ -4,7 +4,7 @@ resource "google_storage_bucket" "bucket" {
 
 locals {
   timestamp = formatdate("YYMMDDhhmmss", timestamp())
-  root_dir = abspath("../../cloudfunctiondemo")
+  root_dir = abspath("../cloudfunctiondemo")
 }
 
 # Zip up source code
