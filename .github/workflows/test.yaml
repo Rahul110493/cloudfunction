@@ -54,7 +54,7 @@ jobs:
           -var="project_id=$GCP_PROJECT_ID" \
           -var="region=$RUN_REGION" \
           -var='source_dir=cloudfunctiondemo' \
-          -var="bucket_name=$BUCKET_NAME" \
+          -var="bucket_name=functionbucket" \
           -var="function_name=$REPO_NAME" \
           -var="entry_point=myWebsiteBackend" \
           -var="scheduler_name=schedule" \
