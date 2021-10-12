@@ -1,6 +1,3 @@
-module "gcp-cloudfunctions" {
-  source = "./gcp/service/cloudfunctions"
-}
   
 resource "google_cloud_scheduler_job" "cloudscheduler" {
   name         = var.scheduler_name
