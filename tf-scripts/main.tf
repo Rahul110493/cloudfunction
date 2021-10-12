@@ -45,9 +45,9 @@ module "gcp-cloudfunctions" {
   entry_point           = var.entry_point
   runtime               = var.runtime
   environment_variables = var.environment_variables
-  service_account_email = module.service-account.email
+  service_account_email = module.service-account.google_service_account.service_account.email
   vpc_connector         = var.vpc_connector
   max_instances         = var.max_instances
-  depends_on = [module.enable-api]
+  depends_on = [module.enable-api,module.service-account]
   
 }
