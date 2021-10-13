@@ -6,7 +6,7 @@ gcp_service_list = [
   #"appengine.googleapis.com",               # App Engine API
   #"bigquery.googleapis.com",                # BigQuery API
   # "cloudapis.googleapis.com",               # Google Cloud APIs
-  #"cloudbuild.googleapis.com",              # Cloud Build API
+  "cloudbuild.googleapis.com",              # Cloud Build API
   # "clouddebugger.googleapis.com",           # Cloud Debugger API
   "cloudfunctions.googleapis.com",          # Cloud Function API
   # "cloudkms.googleapis.com",                # KMS API
