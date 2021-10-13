@@ -14,7 +14,6 @@ app.use(cookieParser());
 app.use(cors());
 
 app.use('/api', require('./api'));
-app.use('/myapi', require('./myapi'));
 
 // Important later!  This exports the app object as a module.
 // This comes into play when we deploy the application to
