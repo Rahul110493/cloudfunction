@@ -10,7 +10,7 @@ gcp_service_list = [
   # "clouddebugger.googleapis.com",           # Cloud Debugger API
   "cloudfunctions.googleapis.com",          # Cloud Function API
   # "cloudkms.googleapis.com",                # KMS API
-  #"cloudscheduler.googleapis.com",          # Cloud Scheduler API
+  "cloudscheduler.googleapis.com",          # Cloud Scheduler API
   # "cloudtrace.googleapis.com",              # Stackdriver Trace API
   # "compute.googleapis.com",                 # Compute Engine API
   # "containerregistry.googleapis.com",       # Google Container Registry API
