@@ -76,3 +76,13 @@ jobs:
       working-directory: ./tf-scripts
       env:
         GOOGLE_CREDENTIALS: ${{ env.SERVICE_ACCOUNT}} 
+    - name: Error destroy
+      id: destroy    
+      if: always()
+      run: |-
+         if $? != 0 ;then terraform destroy -auto-approve;fi
+      continue-on-error: false
+      working-directory: ./tf-scripts
+      env:
+        GOOGLE_CREDENTIALS: ${{ env.SERVICE_ACCOUNT}}          
+ 
