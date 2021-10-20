@@ -60,7 +60,7 @@ jobs:
           -var="entry_point=myWebsiteBackend" \
           -var="scheduler_name=schedule" \
           -var="sa_name=newschedulesa" \
-          -var="pipeline_sa=githubsa-280@nodejsapp-324007.iam.gserviceaccount.com" \
+          -var="pipeline_sa=serviceAccount:githubsa-280@nodejsapp-324007.iam.gserviceaccount.com" \
           -var-file=gcp/service/api-resources/api.tfvars \
           -out=PLAN
       continue-on-error: false
