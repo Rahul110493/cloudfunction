@@ -48,29 +48,29 @@ jobs:
       working-directory: ./tf-scripts
       env:
         GOOGLE_CREDENTIALS: ${{ env.SERVICE_ACCOUNT }}      
-#     - name: Terraform Plan
-#       id: plan
-#       run: |-
-#          terraform plan \
-#           -var="project_id=$GCP_PROJECT_ID" \
-#           -var="region=$RUN_REGION" \
-#           -var='source_dir=cloudfunctiondemo' \
-#           -var="bucket_name=functionbuckets" \
-#           -var="function_name=$REPO_NAME" \
-#           -var="entry_point=myWebsiteBackend" \
-#           -var="scheduler_name=schedule" \
-#           -var="service_account_email=scheduleraccount-667@nodejsapp-324007.iam.gserviceaccount.com" \
-#           -var-file=gcp/service/api-resources/api.tfvars \
-#           -out=PLAN
-#       continue-on-error: false
-#       working-directory: ./tf-scripts
-#       env:
-#         GOOGLE_CREDENTIALS: ${{ env.SERVICE_ACCOUNT }}
-    - name: Terraform destroy
+    - name: Terraform Plan
+      id: plan
+      run: |-
+         terraform plan \
+          -var="project_id=$GCP_PROJECT_ID" \
+          -var="region=$RUN_REGION" \
+          -var='source_dir=cloudfunctiondemo' \
+          -var="bucket_name=functionbuckets" \
+          -var="function_name=$REPO_NAME" \
+          -var="entry_point=myWebsiteBackend" \
+          -var="scheduler_name=schedule" \
+          -var="sa_name=newschedulesa" \
+          -var="pipeline_sa=githubsa-280@nodejsapp-324007.iam.gserviceaccount.com" \
+          -var-file=gcp/service/api-resources/api.tfvars \
+          -out=PLAN
+      continue-on-error: false
+      working-directory: ./tf-scripts
+      env:
+        GOOGLE_CREDENTIALS: ${{ env.SERVICE_ACCOUNT }}
+    - name: Terraform apply
       id: apply
       run: |-
-          terraform destroy -auto-approve
-#          terraform apply PLAN
+         terraform apply PLAN
            
       continue-on-error: false
       working-directory: ./tf-scripts
