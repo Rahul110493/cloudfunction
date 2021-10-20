@@ -82,12 +82,6 @@ variable "environment_variables" {
   default     = {}
 }
 
-variable "service_account_email" {
-  type        = string
-  description = "(Optional) If provided, the self-provided service account to run the function with."
-  default     = ""
-}
-
 variable "vpc_connector" {
   type        = string
   description = "(Optional) If provided, the vpc connector to use"
