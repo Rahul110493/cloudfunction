@@ -18,3 +18,8 @@ variable "url" {
   type = string
   default = ""
 }
+variable "service_account_email" {
+  type        = string
+  description = "(Optional) If provided, the self-provided service account to run the scheduler with."
+  default     = ""
+}
