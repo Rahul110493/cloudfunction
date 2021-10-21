@@ -124,3 +124,9 @@ variable "pipeline_sa" {
   type = string
   default = ""
 }
+variable "api_path" {
+  description = "api_path"
+  type = string
+  default = ""
+}
+
