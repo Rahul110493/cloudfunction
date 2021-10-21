@@ -48,46 +48,46 @@ jobs:
       working-directory: ./tf-scripts
       env:
         GOOGLE_CREDENTIALS: ${{ env.SERVICE_ACCOUNT }}      
-#     - name: Terraform Plan
-#       id: plan
-#       run: |-
-#          terraform plan \
-#           -var="project_id=$GCP_PROJECT_ID" \
-#           -var="region=$RUN_REGION" \
-#           -var='source_dir=cloudfunctiondemo' \
-#           -var="bucket_name=functionbuckets" \
-#           -var="function_name=$REPO_NAME" \
-#           -var="entry_point=myWebsiteBackend" \
-#           -var="scheduler_name=schedule" \
-#           -var="sa_name=newschedulesa" \
-#           -var="pipeline_sa=serviceAccount:githubsa-280@nodejsapp-324007.iam.gserviceaccount.com" \
-#           -var="api_path=/api/portfolio" \
-#           -var-file=gcp/service/api-resources/api.tfvars \
-#           -out=PLAN
-#       continue-on-error: false
-#       working-directory: ./tf-scripts
-#       env:
-#         GOOGLE_CREDENTIALS: ${{ env.SERVICE_ACCOUNT }}
-#     - name: Terraform apply
-#       id: apply
-#       run: |-
-#          terraform apply PLAN
-           
-#       continue-on-error: false
-#       working-directory: ./tf-scripts
-#       env:
-#         GOOGLE_CREDENTIALS: ${{ env.SERVICE_ACCOUNT}} 
-    - name: Error destroy
-      id: destroy    
-#       if: always()
+    - name: Terraform Plan
+      id: plan
       run: |-
-           terraform destroy -auto-approve
-#          echo $?
-#          if $? != 0 ;then 
-
-#          ;fi
+         terraform plan \
+          -var="project_id=$GCP_PROJECT_ID" \
+          -var="region=$RUN_REGION" \
+          -var='source_dir=cloudfunctiondemo' \
+          -var="bucket_name=functionbuckets" \
+          -var="function_name=$REPO_NAME" \
+          -var="entry_point=myWebsiteBackend" \
+          -var="scheduler_name=schedule" \
+          -var="sa_name=newschedulesa" \
+          -var="pipeline_sa=serviceAccount:githubsa-280@nodejsapp-324007.iam.gserviceaccount.com" \
+          -var="api_path=/api/portfolio" \
+          -var-file=gcp/service/api-resources/api.tfvars \
+          -out=PLAN
       continue-on-error: false
       working-directory: ./tf-scripts
       env:
-        GOOGLE_CREDENTIALS: ${{ env.SERVICE_ACCOUNT}}          
+        GOOGLE_CREDENTIALS: ${{ env.SERVICE_ACCOUNT }}
+    - name: Terraform apply
+      id: apply
+      run: |-
+         terraform apply PLAN
+           
+      continue-on-error: false
+      working-directory: ./tf-scripts
+      env:
+        GOOGLE_CREDENTIALS: ${{ env.SERVICE_ACCOUNT}} 
+#     - name: Error destroy
+#       id: destroy    
+# #       if: always()
+#       run: |-
+#            terraform destroy -auto-approve
+# #          echo $?
+# #          if $? != 0 ;then 
+
+# #          ;fi
+#       continue-on-error: false
+#       working-directory: ./tf-scripts
+#       env:
+#         GOOGLE_CREDENTIALS: ${{ env.SERVICE_ACCOUNT}}          
  
