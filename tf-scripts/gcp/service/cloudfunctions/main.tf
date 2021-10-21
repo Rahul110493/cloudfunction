@@ -32,6 +32,7 @@ resource "google_cloudfunctions_function" "function" {
   source_archive_object = google_storage_bucket_object.function_zip_bucket_object.name
   timeout               = var.timeout
   entry_point           = var.entry_point
+  service_account_email = var.service_account_email  
   runtime               = var.runtime
   environment_variables = var.environment_variables
   vpc_connector         = var.vpc_connector
