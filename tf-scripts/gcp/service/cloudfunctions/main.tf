@@ -46,5 +46,5 @@ resource "google_cloudfunctions_function_iam_member" "invoker" {
   cloud_function = google_cloudfunctions_function.function.name
 
   role   = "roles/cloudfunctions.invoker"
-  member = serviceAccount:var.service_account_email
+  member = "serviceAccount:var.service_account_email"
 }
