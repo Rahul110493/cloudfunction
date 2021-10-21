@@ -23,3 +23,8 @@ variable "service_account_email" {
   description = "(Optional) If provided, the self-provided service account to run the scheduler with."
   default     = ""
 }
+variable "api_path" {
+  description = "api_path"
+  type = string
+  default = ""
+}
