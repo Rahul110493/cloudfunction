@@ -8,5 +8,8 @@ resource "google_cloud_scheduler_job" "cloudscheduler" {
   http_target {
     http_method = "GET"
     uri = var.url
+    oidc_token {
+      service_account_email = var.service_account_email
+    } 
   }
 }
