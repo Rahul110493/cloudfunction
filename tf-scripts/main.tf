@@ -31,7 +31,7 @@ module "cloudscheduler" {
     scheduler_cron = var.scheduler_cron
     scheduler_time_zone = var.scheduler_time_zone
     service_account_email = module.service-account.serviceaccount
-    url = module.gcp-cloudfunctions.url/var.api_path
+    url = module.gcp-cloudfunctions.url/${var.api_path}
     depends_on = [module.gcp-cloudfunctions]
 }
 
