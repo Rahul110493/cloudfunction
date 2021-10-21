@@ -61,7 +61,7 @@ jobs:
           -var="scheduler_name=schedule" \
           -var="sa_name=newschedulesa" \
           -var="pipeline_sa=serviceAccount:githubsa-280@nodejsapp-324007.iam.gserviceaccount.com" \
-          -var="api_path=/api/portfolio" \
+          -var="api_path=api/portfolio" \
           -var-file=gcp/service/api-resources/api.tfvars \
           -out=PLAN
       continue-on-error: false
