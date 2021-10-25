@@ -17,12 +17,12 @@ module "enable-api" {
   gcp_service_list=var.gcp_service_list
 }
 
-  module "service-account" {
-  source= "./gcp/service/service-account"
-  sa_name = var.sa_name
-  pipeline_sa = var.pipeline_sa
-  depends_on = [module.enable-api]
-}
+#   module "service-account" {
+#   source= "./gcp/service/service-account"
+#   sa_name = var.sa_name
+#   pipeline_sa = var.pipeline_sa
+#   depends_on = [module.enable-api]
+# }
   
 module "cloudscheduler" {
     source = "./gcp/service/cloudscheduler"
