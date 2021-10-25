@@ -17,12 +17,11 @@ module "enable-api" {
   gcp_service_list=var.gcp_service_list
 }
 
-#   module "service-account" {
-#   source= "./gcp/service/service-account"
-#   sa_name = var.sa_name
-#   pipeline_sa = var.pipeline_sa
-#   depends_on = [module.enable-api]
-# }
+  module "service-account" {
+  source= "./gcp/service/service-account"
+  sa_name = var.sa_name
+  depends_on = [module.enable-api]
+}
   
 module "cloudscheduler" {
     source = "./gcp/service/cloudscheduler"
@@ -50,6 +49,6 @@ module "gcp-cloudfunctions" {
   service_account_email = var.sa_name
   vpc_connector         = var.vpc_connector
   max_instances         = var.max_instances
-  depends_on = [module.enable-api]
+  depends_on = [module.enable-api,module.service-account]
   
 }
