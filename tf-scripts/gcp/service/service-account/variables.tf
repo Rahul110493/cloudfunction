@@ -4,8 +4,3 @@ variable "sa_name" {
   default = ""
 }
 
-variable "pipeline_sa" {
-  description = "pipeline_sa"
-  type = string
-  default = ""
-}
