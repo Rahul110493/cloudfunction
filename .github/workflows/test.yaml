@@ -1,6 +1,5 @@
 name: test schedule
 
-
 on: 
   push:
     branches:
