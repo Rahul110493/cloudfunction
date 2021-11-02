@@ -1,4 +1,4 @@
-# variable "scheduler_name" {
+variable "scheduler_name" {
   description = "name of cloud scheduler "
   type =string
   default = ""
