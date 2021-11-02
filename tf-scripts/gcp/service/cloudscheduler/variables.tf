@@ -1,4 +1,4 @@
-variable "scheduler_name" {
+# variable "scheduler_name" {
   description = "name of cloud scheduler "
   type =string
   default = ""
@@ -28,4 +28,4 @@ variable "api_path" {
   type = string
   default = ""
 }
-variable "body" {}
+# variable "body" {}
