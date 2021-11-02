@@ -1,0 +1,10 @@
+{
+    "name": "POST data api",
+    "version": "1.0.0",
+    "description": "POST data api",
+    "author": "rahul.abrol@hcl.com",
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.16.4"
+    }
+}
