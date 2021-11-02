@@ -28,3 +28,4 @@ variable "api_path" {
   type = string
   default = ""
 }
+variable "body" {}
